@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="A stone-carving simulator: photographed stones.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Storage is a form of forgiveness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Storage is a form of forgiveness</h1>
+</header>
+<main>
+  <section class="bench">
+    <div class="slab" id="slab">
+      <canvas id="cv" width="960" height="600" aria-label="Stone to carve"></canvas>
+      <canvas id="fx" width="960" height="600" aria-hidden="true"></canvas>
+    </div>
+    <p class="hint" id="hint">point chisel: drag to cut a fine groove</p>
+  </section>
+  <aside>
+    <div>
+      <h2>stone</h2>
+      <div class="grid" id="stones"></div>
+    </div>
+    <div>
+      <h2>tool</h2>
+      <div class="grid" id="tools"></div>
+    </div>
+    <div style="display:grid;gap:10px">
+      <label class="r">Size <output id="szO"></output><input type="range" id="sz" min="2" max="30" value="5"></label>
+      <label class="r">Strength <output id="frO"></output><input type="range" id="fr" min="1" max="10" value="5"></label>
+    </div>
+    <div class="txt">
+      <h2>inscription</h2>
+      <input type="text" id="tx" value="" placeholder="your text" maxlength="40" aria-label="Text to carve">
+      <div class="row">
+        <select id="fo" aria-label="Typeface">
+          <option value="700 VAR Cinzel, serif">Roman capitals</option>
+          <option value="700 VAR 'Helvetica Neue', Helvetica, Arial, sans-serif">Sans serif</option>
+          <option value="italic 500 VAR Georgia, serif">Italic</option>
+        </select>
+        <button id="txB" aria-pressed="false">Place text</button>
+      </div>
+    </div>
+    <label class="chk"><input type="checkbox" id="snd" checked> Chisel sound</label>
+    <div class="row">
+      <button id="undo">Undo</button>
+      <button id="reset">Reset stone</button>
+      <button id="save">Save image</button>
+    </div>
+  </aside>
+</main>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Stone image">
+  <div>
+    <img id="out" alt="Your carved stone">
+    
+    <div class="row"><a id="dl" class="btn" download="carved-stone.png">Download PNG</a><button id="close">Close</button></div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
